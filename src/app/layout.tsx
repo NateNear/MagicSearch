@@ -54,6 +54,7 @@ export default function RootLayout({
                 </p>
                 <div className="mx-auto w-full max-w-2xl flex flex-col">
                   <SearchBar/>
+                  {children}  
                 </div>
               </div>
             </div>

@@ -5,10 +5,12 @@ import { useRef, useState, useTransition } from "react"
 import { Loader2, Search } from "lucide-react"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 
 function SearchBar() {
-    const [query, setquery] = useState<string>('')
+    const searchParams = useSearchParams()
+    const defaultQuery = searchParams.get("query") || ''
+    const [query, setquery] = useState<string>(defaultQuery)
     const inputRef = useRef(null);
     const [isSearching, startTransition] = useTransition();
     const router = useRouter();
